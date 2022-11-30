@@ -22,5 +22,11 @@ pipeline {
       }
     }
 
+    stage('Copy kubeconfig') {
+      steps {
+        sh 'aws eks --region eu-south-1 update-kubeconfig --name Project-E-N-A-I-eks'
+      }
+    }
+
   }
 }
