@@ -1,8 +1,6 @@
 pipeline {
   agent {
-   
-      label 'terraform'
-    
+    label 'terraform'
   }
   stages {
     stage('Checkout code') {
