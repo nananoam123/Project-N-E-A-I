@@ -7,6 +7,7 @@ pipeline {
   stages {
     stage('Checkout code') {
       steps {
+        cleanWs()
         git(url: 'https://github.com/nananoam123/Project-N-E-A-I.git', branch: 'main', credentialsId: 'github')
       }
     }
