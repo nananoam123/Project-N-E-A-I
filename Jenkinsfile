@@ -17,6 +17,9 @@ pipeline {
     }
 
     stage('terraform apply') {
+      agent {
+    label 'win'
+  }
       steps {
         sh 'terraform apply -auto-approve'
       }
