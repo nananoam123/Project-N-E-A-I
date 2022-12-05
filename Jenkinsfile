@@ -17,9 +17,7 @@ pipeline {
     }
 
     stage('terraform apply') {
-      agent {
-    label 'win'
-  }
+      
       steps {
         sh 'terraform apply -auto-approve'
       }
@@ -27,6 +25,9 @@ pipeline {
 
     stage('Copy kubeconfig') {
       steps {
+        agent {
+    label 'win'
+  }
         sh 'aws eks --region ap-northeast-1 update-kubeconfig --name Project-E-N-A-I-eks'
       }
     }
