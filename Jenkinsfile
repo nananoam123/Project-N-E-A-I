@@ -22,7 +22,7 @@ pipeline {
 
     stage('Copy kubeconfig') {
       steps {
-        node('Built-In Node'){
+        node('built-in node'){
         
         sh 'aws eks --region ap-northeast-1 update-kubeconfig --name Project-E-N-A-I-eks'
       }
