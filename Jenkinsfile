@@ -33,11 +33,7 @@ pipeline {
 
     stage('helm install') {
       steps {
-        sh '''kubectl create namespace monitoring
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
-helm upgrade --namespace monitoring --install kube-stack-prometheus prometheus-community/kube-prometheus-stack --set prometheus-node-exporter.hostRootFsMount.enabled=false
-'''
+        sh 'echo hello world'
       }
     }
 
