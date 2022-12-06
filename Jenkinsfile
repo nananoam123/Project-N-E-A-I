@@ -8,17 +8,17 @@ pipeline {
       }
     }
 
-    // stage('terraform init') {
-    //   steps {
-    //     sh 'terraform init '
-    //   }
-    // }
+    stage('terraform init') {
+      steps {
+        sh 'echo hello world '
+      }
+    }
 
-    // stage('terraform apply') {
-    //   steps {
-    //     sh 'terraform apply -auto-approve'
-    //   }
-    // }
+    stage('terraform apply') {
+      steps {
+        sh 'echo hello world'
+      }
+    }
 
     stage('Copy kubeconfig') {
       steps {
