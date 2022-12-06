@@ -39,9 +39,11 @@ pipeline {
 
     stage('Expose services ') {
       steps {
+        node(label: 'win') {
         sh '''kubectl port-forward --namespace monitoring svc/kube-stack-prometheus-kube-prometheus 9090:9090 &
 kubectl port-forward --namespace monitoring svc/kube-stack-prometheus-grafana 7000:80 &'''
       }
+     }
     }
 
   }
