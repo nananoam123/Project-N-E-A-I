@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent {label 'terraform'} 
   stages {
     stage('Checkout code') {
       steps {
