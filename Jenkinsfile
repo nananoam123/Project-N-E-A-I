@@ -40,8 +40,8 @@ pipeline {
     stage('Expose services ') {
       steps {
         node(label: 'win') {
-        sh '''start /min cmd /c kubectl port-forward --namespace monitoring svc/kube-stack-prometheus-kube-prometheus 9090:9090 
-start /min cmd /c kubectl port-forward --namespace monitoring svc/kube-stack-prometheus-grafana 7000:80 '''
+        sh '''nohup kubectl port-forward --namespace monitoring svc/kube-stack-prometheus-kube-prometheus 9090:9090 & 
+nohup kubectl port-forward --namespace monitoring svc/kube-stack-prometheus-grafana 7000:80 & '''
       }
      }
     }
