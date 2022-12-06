@@ -22,11 +22,12 @@ pipeline {
 
     stage('Copy kubeconfig') {
       steps {
-        node('Built-In Node'{
+        node('Built-In Node'){
         
         sh 'aws eks --region ap-northeast-1 update-kubeconfig --name Project-E-N-A-I-eks'
       }
     }
+   }
 
     stage('helm install') {
       steps {
