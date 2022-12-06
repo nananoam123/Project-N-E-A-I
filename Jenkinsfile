@@ -22,8 +22,8 @@ pipeline {
 
     stage('Copy kubeconfig') {
       steps {
-        agent() {
-          label 'win'
+        agent {
+          label 'Built-In Node'
         }
 
         sh 'aws eks --region ap-northeast-1 update-kubeconfig --name Project-E-N-A-I-eks'
