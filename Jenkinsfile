@@ -24,7 +24,7 @@ pipeline {
 
     stage('Copy kubeconfig') {
       steps {
-        node(label: 'Jenkins') {
+        node(label: 'win') {
           sh 'aws eks --region ap-northeast-1 update-kubeconfig --name Project-E-N-A-I-eks'
         }
 
