@@ -25,8 +25,7 @@ pipeline {
     stage('Copy kubeconfig') {
       steps {
         node(label: 'win') {
-          sh '''rm -rf /c/jenkins/workspace/Project-N-E-A-I_main
-aws eks --region ap-northeast-1 update-kubeconfig --name Project-E-N-A-I-eks'''
+          sh 'aws eks --region ap-northeast-1 update-kubeconfig --name Project-E-N-A-I-eks'
         }
 
       }
