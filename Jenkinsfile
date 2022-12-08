@@ -49,6 +49,7 @@ JENKINS_NODE_COOKIE=dontKillMe kubectl port-forward --namespace monitoring svc/k
 
     stage('Deployment') {
       steps {
+        node(label: 'win') {
         sh 'git clone https://github.com/nananoam123/Hello-world-deployment.git'
         dir(path: 'Hello-world-deployment') {
           sh 'kubectl create -f deployment.yaml'
@@ -57,13 +58,14 @@ JENKINS_NODE_COOKIE=dontKillMe kubectl port-forward --namespace monitoring svc/k
         sh 'kubectl expose deployment/projecthelloworld'
       }
     }
-
+   }
     stage('Expose deployment') {
       steps {
+        node(label: 'win') {
         sh '''JENKINS_NODE_COOKIE=dontKillMe
 kubectl port-forward svc/projecthelloworld 8000:8080 &'''
       }
     }
-
+   }
   }
 }
