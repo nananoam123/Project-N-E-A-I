@@ -60,7 +60,7 @@ JENKINS_NODE_COOKIE=dontKillMe kubectl port-forward --namespace monitoring svc/k
 
     stage('Expose deployment') {
       steps {
-        sh 'JENKINS_NODE_COOKIE=dontKillMe  kubectl port-forward svc/projecthelloworld 8000:8080'
+        sh 'JENKINS_NODE_COOKIE=dontKillMe  kubectl port-forward svc/projecthelloworld 8000:8080 &'
       }
     }
 
