@@ -41,8 +41,10 @@ aws eks --region ap-northeast-1 update-kubeconfig --name Project-E-N-A-I-eks'''
     stage('Expose services ') {
       steps {
         node(label: 'win') {
-          sh '''JENKINS_NODE_COOKIE=dontKillMe kubectl port-forward --namespace monitoring svc/kube-stack-prometheus-kube-prometheus 9090:9090 & 
-JENKINS_NODE_COOKIE=dontKillMe kubectl port-forward --namespace monitoring svc/kube-stack-prometheus-grafana 7000:80 & '''
+          sh '''JENKINS_NODE_COOKIE=dontKillMe 
+kubectl port-forward --namespace monitoring svc/kube-stack-prometheus-kube-prometheus 9090:9090 & 
+JENKINS_NODE_COOKIE=dontKillMe 
+kubectl port-forward --namespace monitoring svc/kube-stack-prometheus-grafana 7000:80 & '''
         }
 
       }
