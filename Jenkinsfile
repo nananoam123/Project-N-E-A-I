@@ -12,13 +12,13 @@ pipeline {
 
     stage('terraform init') {
       steps {
-        sh 'echo hello world '
+        sh 'terraform init'
       }
     }
 
     stage('terraform apply') {
       steps {
-        sh 'echo hello world'
+        sh ' terraform apply -auto-approve'
       }
     }
 
@@ -34,7 +34,10 @@ aws eks --region ap-northeast-1 update-kubeconfig --name Project-E-N-A-I-eks'''
 
     stage('helm install') {
       steps {
-        sh 'echo hello world'
+        sh '''kubectl create namespace monitoring
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update 
+helm upgrade --namespace monitoring --install kube-stack-prometheus prometheus-community/kube-prometheus-stack --set prometheus-node-exporter.hostRootFsMount.enabled=false'''
       }
     }
 
